@@ -1,0 +1,215 @@
+{% load static %}
+{% if message %}
+<script>
+    alert('{{ message }}');
+</script>
+{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- Latest compiled and minified CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!--Yash-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <script>
+        src = "https://kit.fontawesome.com/64d58efce2.js"
+        crossorigin = "anonymous"
+    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--Yash-->
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>
+        input[type=password],
+        input[type=email] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">COAL INDIA</a>
+                </div>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-times" onclick="hideMenu()" title="Edit"></i>
+                    <ul class="navibar">
+                        <li class="active"><a onclick="location.href='{% url 'home' %} '">Home</a></li>
+                        <li><a onclick="location.href='{% url 'signIn' %} '">Login</a></li>
+                        <li><a onclick="location.href='{% url 'home' %} '">Features</a></li>
+                        <li><a onclick="location.href='{% url 'home' %} '">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="open">
+                    <i class="fa fa-bars" onclick="showMenu()" title="Edit"></i>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+
+    <h2 class="login-heading">Login</h2>
+    <form action="/postsignIn_admin/" method="post">
+        {% csrf_token %}
+        <div class="imgcontainer">
+            <img src="{% static 'images/img 7.JPG' %}" alt="Avatar" class="img-login">
+        </div>
+
+        <div class="container">
+            <label for="uname"><b>Email Address</b></label>
+            <input type="email" placeholder="Enter Email Address" name="email" required><br>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="pass" required>
+
+
+
+            <!--<a href="/login.html"><button type="button" class="btn1">Register Now!</button></a>-->
+            <input type="submit" value="Login" class="btn1"><br><br>
+        </div>
+
+        <!--<div class="container">
+    <div class="row">
+    
+    <div class="col-md-6">
+    <form action="/postsignIn/" method="post">
+      {% csrf_token %}
+      <div class="imgcontainer">
+        <img src="{% static 'images/img 7.JPG' %}" alt="Avatar" class="img-login">
+      </div>
+
+      <div class="container">
+        <label for="uname"><b>Username</b></label><br>
+        <input type="email" class="email" placeholder="Enter Username" name="email" required><br>
+
+        <label for="psw"><b>Password</b></label><br>
+        <input type="password" placeholder="Enter Password" name="pass" required>
+
+        <div>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+        </div>
+        <input type="submit" class="btn1" value="SignIn"><br><br>
+
+      </div>
+
+
+    </div>
+  </div>-->
+        </div>
+
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" class="cancelbtn" onclick="location.href='{% url 'home' %} '">Cancel</button>
+            <!--<span class="psw"><a href="/reset/">Forgot password?</a></span>-->
+            <span class="psw"><button type="button" onclick="location.href='{% url 'reset' %} '">Reset
+                    Password</button></span>
+        </div>
+    </form>
+
+    <div class="footer">
+        <p class="text-center"> © COAL INDIA. All rights reserved. </p>
+    </div>
+
+
+    <script>
+        var navLinks = document.getElementById("navLinks");
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
+    </script>
+
+
+</body>
+
+</html>
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+    <style>
+     body{
+            background-image: url(https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
+        }
+         input{
+            margin-top:20px;
+            height: 30px;
+             padding: 12px 20px;
+             width: 150px;
+             margin: 8px 0;
+            border-radius: 5px;
+        }
+        input[type="submit"]{
+            background-color: rgba(7, 179, 185, 0.753);
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+        }
+        button{
+            background-color: rgba(7, 179, 185, 0.753);
+            color: white;
+            width: 150px;
+            height: 30px;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+ 
+<form action="/postsignIn/" method="post">
+    {% csrf_token %}
+    <br/>
+
+    <label for="Email">Email</label>
+    <input type="email"id="Email" name="email"><br><br>
+
+    <label for="Password">Password</label>
+    <input type="password" id="Password" name="pass"><br><br>
+    <input type="submit" value="SignIn"><br><br>
+    <p style="color: black;padding: 10px 0;">Forgot Password? <a href="/reset/" style="color: black;">Click Here to Reset</a></p>
+ 
+ 
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+    <button type="button" onclick="location.href='{% url 'signup' %} '">SignUp</button>
+</form>
+</body>
+</html>-->

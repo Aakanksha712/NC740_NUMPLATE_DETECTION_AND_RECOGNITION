@@ -1,0 +1,200 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Coal India Website</title>
+
+     <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  
+
+    <!-- Font Awesome JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'wel.css' %}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h2 style="text-align: center;">Coal India Limited</h2>
+                <strong>C.I.L</strong>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a>
+                        <i class="fas fa-cube" aria-hidden="true" style="margin-right:10px ;"></i>
+                        <h5 style="display: inline;">Dashboard</h5>
+                    </a>
+                    <!--<ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">My profile</a>
+                        </li>
+                        <li>
+                            <a href="#">Rewards</a>
+                        </li>
+                        <li>
+                            <a href="#">Claims</a>
+                        </li>
+                    </ul>-->
+                </li>
+                <li>
+                    <a onclick="location.href='{% url 'signIn' %} '">
+                        <i class="fa-solid fa-user"></i>
+                        <h5 style="display: inline;">Login</h5>
+                    </a>
+                    <!--<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-check-circle"></i>
+                        <h5 style="display: inline;">Proposal</h5>
+                    </a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Winter</a>
+                        </li>
+                        <li>
+                            <a href="#">Spring</a>
+                        </li>
+                    </ul>
+                </li>
+                -->
+                <li>
+                    <a>
+                        <i class="fas fa-check-circle" style="margin-right:10px ;"></i>
+                        <h5 style="display: inline;">Features</h5>
+                    </a>
+                </li>
+                <li>
+                    <a onclick="location.href='{% url 'compare' %} '">
+                        <i class="fa-solid fa-code-compare"></i>
+                        <h5 style="display: inline;">Compare</h5>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-phone"></i>
+                        <h5 style="display: inline;">Contact us</h5>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-info" style="background-color: #333;" >
+                <i class="fas fa-align-left" style="color: white; "></i>
+            </button>
+
+            <button type="button" onclick="location.href='{% url 'log' %}' "  style="background-color: #333; color: white; float: right;">Logout</button>
+            <br><br>
+            <i class="fas fa-solid fa-user"></i>
+            <h6 style="display: inline;">{{e}}</h6>
+
+            <div class="row mt-4" style="display: flex; align-items: center; justify-content: center;">
+                <div class="card col-lg-4 m-1" style="width: 19rem; height: 12rem; background-color: rgb(194, 243, 227);">
+                    <div class="card-body">
+                        <h5 class="card-title text-center" style="color: black;">375</h5>
+                        <h6 class="card-subtitle mb-4 text-muted text-center">Total RFID Install</h6>
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <section class="mr-2">
+                                <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: center;" >300</a>
+                                <a href="#" class="card-link">Entry Gate</a>
+                            </section>
+                            <section class="ml-2">
+                                <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: center;">275</a>
+                                <a href="#" class="card-link">Exit Gate</a>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card col-lg-4 m-1" style="width: 19rem; height: 12rem; background-color: rgb(226, 210, 241);">
+                    <div class="card-body">
+                        <h5 class="card-title text-center" style="color: black;">795</h5>
+                        <h6 class="card-subtitle mb-4 text-muted text-center">Total No. of Trucks</h6>
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <section class="mr-2" >
+                                <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: center;" >300</a>
+                                <a href="#" class="card-link">Entered</a>
+                            </section>
+                            <section class="ml-2">
+                                <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: center;">75</a>
+                                <a href="#" class="card-link">Left</a>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card col-lg m-1" style="width: 19rem; height: 12rem; background-color: rgb(250, 224, 224);">
+                    <div class="card-body">
+                        <h5 class="card-title text-center" style="color: black;">502</h5>
+                        <h6 class="card-subtitle mb-4 text-muted text-center">Total Coal Present</h6>
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <section class="mr-2">
+                                <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: center;" >300</a>
+                                <a href="#" class="card-link">Anthracite</a>
+                            </section>
+                            <section class="ml-2">
+                                <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: center;">175</a>
+                                <a href="#" class="card-link">Lignite</a>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h4 style="text-align: center;">Statitics of Trucks</h4>
+            <div id="chart" style="width:80%; height:200px; margin:0 auto;"></div>
+        </div>
+        
+        <div>
+            
+            
+        </div>
+            
+            
+            
+    </div>
+    
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+
+
+        
+    </script>
+    <script src="https://code.jscharting.com/2.9.0/jscharting.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="{% static 'wel.js' %}"></script>
+
+</body>
+
+</html>

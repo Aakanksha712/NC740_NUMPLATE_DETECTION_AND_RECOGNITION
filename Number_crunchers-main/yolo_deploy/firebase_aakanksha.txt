@@ -1,0 +1,24 @@
+from firebase import firebase
+
+    firebase = firebase.FirebaseApplication("https://mlmodel1-default-rtdb.firebaseio.com/",None)
+
+    now = datetime.datetime.now()
+    print ("Current date and time : ")
+    
+    curr_time = now.strftime("%Y-%m-%d %H:%M:%S")
+    data = {
+        'Number_Plate':original_number,
+        'Timestamp':curr_time
+
+    }
+
+    rfid = "-N8nOKh5Ajw4_MpWJstE"
+    
+    
+    result = firebase.post('https://mlmodel1-default-rtdb.firebaseio.com/number_plate_data/',data)
+
+    data_pushed = firebase.get('https://mlmodel1-default-rtdb.firebaseio.com/number_plate_data','')
+    print(data_pushed)
+    keys = data_pushed.keys()
+    for key in keys:
+        print(data_pushed[key])

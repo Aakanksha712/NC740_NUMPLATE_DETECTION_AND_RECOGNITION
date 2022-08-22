@@ -1,0 +1,67 @@
+conda create -n pytorch-gpu python==3.8
+conda activate pytorch-gpu
+pip3 install torch torchvision torchaudio
+pip3 install -r E:\SIH\yolo_deploy_try_1\yolov5-master\requirements.txt
+pip install easyocr
+pip install pytesseract
+pip install imutils
+pip uninstall opencv-python-headless –y
+pip install opencv-python==4.3.0.38 
+pip install cvzone
+
+pip install git+https://github.com/ozgur/python-firebase
+
+python E:\SIH\yolo_deploy_try_1\deploy.py
+
+SOLUTIONS:
+pip uninstall opencv-python-headless –y
+pip install opencv-python==4.3.0.38 
+
+Error :AttributeError: module 'cv2' has no attribute 'INTER_AREA'
+Solution : pip install opencv-contrib-python
+
+
+
+References
+1. https://www.nitorinfotech.com/blog/improve-ocr-accuracy-using-advanced-preprocessing-techniques/
+2. https://www.geeksforgeeks.org/text-detection-and-extraction-using-opencv-and-ocr/
+3. https://nanonets.com/blog/ocr-with-tesseract/#:~:text=Tesseract%20OCR%20engine-,OCR%20with%20Pytesseract%20and%20OpenCV,image%20to%20text%20use%20cases.
+4. https://stackoverflow.com/questions/52133031/receiving-async-error-when-trying-to-import-the-firebase-package
+
+
+
+elif vid_path !=None:
+        print(f"[INFO] Working with video: {vid_path}")
+
+        ## reading the video
+        cap = cv2.VideoCapture(vid_path)
+
+
+        if vid_out: ### creating the video writer if video output path is given
+
+            # by default VideoCapture returns float instead of int
+            width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+            height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+            fps = int(cap.get(cv2.CAP_PROP_FPS))
+            codec = cv2.VideoWriter_fourcc(*'mp4v') ##(*'XVID')
+            out = cv2.VideoWriter(vid_out, codec, fps, (width, height))
+
+        # assert cap.isOpened()
+        frame_no = 1
+
+        
+        while True:
+            # start_time = time.time()
+            ret, frame = cap.read()
+            if ret  and frame_no %1 == 0:
+                print(f"[INFO] Working with frame {frame_no} ")
+
+                frame = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
+                results = detectx(frame, model = model)
+                frame = cv2.cvtColor(frame,cv2.COLOR_RGB2BGR)
+
+
+                frame = plot_boxes(results, frame,classes = classes)
+                
+                
+                frame_no += 1

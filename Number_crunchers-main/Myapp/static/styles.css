@@ -1,0 +1,339 @@
+
+h3{
+    font-size: 30px;
+    letter-spacing: 10px;
+    color:white;
+}
+
+.navibar{
+    margin-left: 0%;
+}
+
+.corosal{
+    width:100%;
+    padding:0;
+}
+
+.content{
+  color: white;
+  bottom: 50%;
+  font-size: 100px;
+  letter-spacing: 20px;
+  font-weight: 700;
+}
+
+.feature-heading{
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top:100px;
+    font-size: 50px;
+    font-weight: 500;
+    letter-spacing: 5px;
+}
+
+.card-body{
+    margin-right:5px;
+}
+
+.card-body h4{
+ color: black;
+}
+
+#offer{
+    margin-left: 100px;
+    margin-right: 0;
+}
+
+.feature{
+    display:flex;
+    text-align: center;
+}
+
+.button{
+    margin-top:50px;
+    margin-bottom:50px;
+    margin-left:400px;
+    height:30%;
+    width:50%;
+    letter-spacing: 5px;
+    font-size: 30px;
+}
+
+.but{
+    width:100%;
+    height:50px;
+}
+
+.but-text{
+  border: #f44336;
+    margin-top:0;
+    letter-spacing: 4px;
+    font-size: 30px;
+    font-weight: 100;
+}
+
+.footer{
+    background-color:black;
+    width: 100%;
+    height:50px;
+    margin-top: 20px;
+}
+
+.text-center{
+    color:white;
+    padding-top:20px;
+}
+
+.button-register{
+  margin-top:100px;
+ /* margin-bottom:50px;*/
+  margin-left:400px;
+  height:30%;
+  width:50%;
+  letter-spacing: 5px;
+  font-size: 30px;
+  margin-bottom:30px;
+}
+
+.button-reg{
+  margin-top:30px;
+ /* margin-bottom:50px;*/
+  height:30%;
+  width:50%;
+  letter-spacing: 5px;
+  font-size: 30px;
+  margin-left:300px;
+}
+
+/*Features*/
+.campus {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 50px;
+}
+.campus-col{
+  flex-basis: 32%;
+  border-radius : 10px;
+  margin-bottom: 50px;
+  position: relative;
+  overflow: hidden
+}
+.campus-col img{
+  width: 100%;
+  height: 70%;
+  display: block;
+}
+.layer{
+  background : transparent;
+  height: 70%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+}
+.layer:hover{                                  /*On image highlight*/
+  background: rgba(94, 93, 93, 0.7) ;
+}
+.layer h3{
+  width: 100%;
+  font-weight: 500;
+  color: #fff;
+  font-size: 26px;
+  bottom: 0;
+  left: 0;
+  transform: translateX (0%) ;
+  position: absolute;
+  opacity: 0;
+  transition: 0.5s;
+  }
+.layer:hover h3{
+  bottom: 49%;
+  opacity: 1;
+}
+.row{
+  margin-top: 5%;
+  display: flex;
+  justify-content : space-between;
+}
+
+
+/******************************************************************************************************************************/
+form {border: 3px solid #f1f1f1;}
+
+input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type=email]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.btn1{
+  margin-left: auto;
+  text-align: center ;
+  color: rgb(9, 9, 9);
+  font-size: x-large;
+  font-weight: bold;
+  background: rgb(39, 178, 233);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn2{
+  text-align: center ;
+  color: rgb(9, 9, 9);
+  font-size: x-large;
+  font-weight: bold;
+  background: rgb(28, 240, 134);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+.img-login {
+  width: 10%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+.login-heading{
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top:50px;
+    font-size: 50px;
+    font-weight: 500;
+    letter-spacing: 5px;
+
+}
+
+/**********************************************************************************************************************/
+
+.nav-links{
+  flex: 1;
+  text-align: right;
+}
+.nav-links ul li{
+  display: inline-block;
+  list-style: none;
+  padding: 8px 12px;
+  position: relative ;
+}
+.nav-links ul li a{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 18px;
+}
+.nav-links ul li::after{
+  content: '';
+  width: 0%;
+  height: 2px;
+  background : #f44336;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+.nav-links ul li:hover::after{
+  width: 100%;
+  }
+
+
+/*Media***************************************************************************/
+
+  @media(max-width: 700px)
+  {        
+    .btn{
+      margin-left: 0%;
+    }
+    .nav-links {
+      position: absolute;
+      color: #f1f1f1;
+      background: rgb(9, 9, 9);
+      height: 100vh;
+      width: 200px;
+      top: 0;
+      right: -200px;                        
+      text-align: left;
+      z-index:2;
+    }
+    nav .open{
+    width: 100%;
+    color: #fff;
+    position: absolute;
+    top: 3%;
+    bottom: 100%;
+    transform: translate(33%,100%);
+    text-align: center;
+    }
+    nav .fa{
+      display: block;
+      color: #fff;
+      margin: 10px;
+      font-size: 22px;
+      cursor: pointer;
+    }
+    .login-heading
+    {
+      font-size: 40px;
+    }
+
+    .row{
+      margin-top: 5%;
+      display: flex;
+      justify-content : space-between;
+      flex-direction: column;
+    } 
+  .content{
+    bottom: 30%;
+    font-size: 50px;
+    letter-spacing: 10px;
+  }
+  .content h3{
+    text-align: center;
+    letter-spacing: 4px;
+  }
+  .navibar{
+    margin-left: 10%;
+}
+}
+
+  

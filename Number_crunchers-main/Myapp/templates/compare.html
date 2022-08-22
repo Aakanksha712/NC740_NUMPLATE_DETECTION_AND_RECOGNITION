@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare</title>
+
+    <!-- Latest compiled and minified CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+      
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row{
+  margin-top: 30px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.num-plate{
+  text-align: center;
+  font-size: 45px;
+  font-weight: 200;
+  letter-spacing: 4px;
+}
+
+.percentage{
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom:40px;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #B4FF9F;
+}
+
+.per-text{
+  font-size: 65px;
+  font-weight: 300;
+  letter-spacing: 5px;
+}
+    </style>
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-inverse" >
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">COAL INDIA</a> 
+            </div>
+            <ul class="nav navbar-nav navibar">
+              <li class="active"><a onclick="location.href='{% url 'home' %} '">Home</a></li>
+              <li><a onclick="location.href='{% url 'signIn' %} '">Login</a></li>
+              <li><a onclick="location.href='{% url 'home' %} '">Features</a></li>
+              <li><a onclick="location.href='{% url 'home' %} '">Contact Us</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <h1 style="text-align:center">Results</h1>
+
+      <div class="row">
+        <div class="column">
+            <h2 style="text-align:center">Original Registration Number</h2>
+            <h1 class="num-plate">{{original}}</h1>
+        </div>
+        <div class="column">
+            <h2 style="text-align:center">Extracted Registration Number</h2>
+            <h1 class="num-plate">{{extract}}</h1>
+        </div>
+      </div>
+      <div class="percentage">
+        <h1 class="per-text">Percentage Matched</h1>
+        <h1 style="margin-top: 30px;"class="per-text">{{perc}}%</h1>
+      </div>
+
+      <div class="footer">  
+        <p class="text-center"> © COAL INDIA.  All rights reserved. </p>  
+    </div> 
+</body>
+</html>
