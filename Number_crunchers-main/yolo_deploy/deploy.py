@@ -84,7 +84,7 @@ def plot_boxes(results, frame, classes):
     for i in range(n):
         row = cord[i]
 
-        if row[4] >= 0.55:  # threshold value for detection. We are discarding everything below this value
+        if row[4] >= 0.94:  # threshold value for detection. We are discarding everything below this value
             print(f"[INFO] Extracting BBox coordinates. . . ")
             global count
             gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
