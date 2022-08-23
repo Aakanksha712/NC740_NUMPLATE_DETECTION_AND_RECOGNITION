@@ -84,13 +84,15 @@ def plot_boxes(results, frame, classes):
     for i in range(n):
         row = cord[i]
 
-        if row[4] >= 0.94:  # threshold value for detection. We are discarding everything below this value
+        if row[4] >= 0.10:  # threshold value for detection. We are discarding everything below this value
             print(f"[INFO] Extracting BBox coordinates. . . ")
             global count
             gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             fm = cv2.Laplacian(gray_frame, cv2.CV_64F).var()
+            
             print(row[4])
             print(fm)
+
             count += 1
 
             x1, y1, x2, y2 = int(row[0]*x_shape), int(row[1]*y_shape), int(
@@ -101,6 +103,8 @@ def plot_boxes(results, frame, classes):
             coords = [x1, y1, x2, y2]
 
             nplate = getnplate(frame, coords)
+            #cv2.imshow("img_only", frame)
+            #cv2.waitKey(6000)
 
             img_dim = nplate.shape
 
@@ -128,9 +132,10 @@ def plot_boxes(results, frame, classes):
             # if text_d == 'mask':
             cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)  # BBox
             # for text label background
-            cv2.rectangle(frame, (x1, y1-20), (x2, y1), (0, 255, 0), -1)
+            cv2.rectangle(frame, (x1, y1-20), (x2, y1), (255, 0, 0), -1)
             cv2.putText(frame, f"{round(float(row[4]),2)}", (
-                x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+                x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2)
+            
 
             # cv2.imwrite("./output/np.jpg",frame[int(y1)-25:int(y2)+25, int(x1)-25:int(x2)+25])
 
@@ -417,6 +422,8 @@ def main(img_path=None, vid_path=None, vid_out=None):
         frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
 
         frame = plot_boxes(results, frame, classes=classes)
+        #cv2.imshow("img_only", frame)
+        #cv2.waitKey(6000)
 
        # cv2.namedWindow("img_only", cv2.WINDOW_NORMAL) ## creating a free windown to show the result
         # creating a free windown to show the result
@@ -426,10 +433,10 @@ def main(img_path=None, vid_path=None, vid_out=None):
             # frame = cv2.cvtColor(frame,cv2.COLOR_RGB2BGR)
 
             cv2.imshow("img_only", frame)
-            upload_final_numplate_on_firebase()
+            #upload_final_numplate_on_firebase()
 
             if cv2.waitKey(5) & 0xFF == ord('q'):
-                upload_final_numplate_on_firebase()
+                
                 print(f"[INFO] Exiting. . . ")
 
                 # if you want to save he output result.
@@ -499,7 +506,7 @@ def main(img_path=None, vid_path=None, vid_out=None):
 
 #E:\SIH\test_videos\test_1.mp4
 #C:\Users\Lenovo\Downloads\vid_s.mp4
-main(vid_path="E:\\SIH\\test_videos\\videoplayback_Trim.mp4",vid_out="vid_1.mp4")  # for custom video
+#main(vid_path="E:\\SIH\\test_videos\\videoplayback_Trim.mp4",vid_out="vid_1.mp4")  # for custom video
 #url = "http://192.168.74.125:8080/video"
 
 #main(vid_path=url,vid_out="webcam_facemask_result.mp4") #### for webcam
@@ -517,4 +524,4 @@ main(vid_path="E:\\SIH\\test_videos\\videoplayback_Trim.mp4",vid_out="vid_1.mp4"
 #C:\\Users\\Lenovo\\Downloads\\test_ch_images0\\truck15.jpg
 #C:\\Users\\Lenovo\\Downloads\\test_ch_images\\truck16.jpg
 
-#main(img_path="E:\\SIH\\number_plate_detection\\number_plate_data\\train\\images\\t15.png") ## for image
+main(img_path="C:\\Users\\Lenovo\\Downloads\\gray_filter_results\\A_7.jpg") ## for image
